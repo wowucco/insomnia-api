@@ -21,28 +21,28 @@ class ArtistController extends Controller
         parent::__construct($id, $module, $config);
     }
 
-    public function actionInfo($artist = null, $mbid = null)
+    public function actionInfo($artist)
     {
-        return $this->artistRepository->getInfo($artist, $mbid);
+        return $this->artistRepository->getInfo($artist);
     }
 
-    public function actionSimilar($artist = null, $mbid = null, $limit = 10)
+    public function actionSimilar($artist, $limit = 10)
     {
-        return $this->artistRepository->getSimilar($artist, $mbid, $limit);
+        return $this->artistRepository->getSimilar($artist, $limit);
     }
 
-    public function actionTopAlbums($artist = null, $mbid = null, $page = 1, $limit = 10)
+    public function actionTopAlbums($artist, $page = 1, $limit = 10)
     {
-        return $this->artistRepository->getTopAlbums($artist, $mbid, $page, $limit);
+        return $this->artistRepository->getTopAlbums($artist, $page, $limit);
     }
 
-    public function actionTopTracks($artist = null, $mbid = null, $page = 1, $limit = 10)
+    public function actionTopTracks($artist, $page = 1, $limit = 10)
     {
-        return $this->artistRepository->getTopTracks($artist, $mbid, $page, $limit);
+        return $this->artistRepository->getTopTracks($artist, $page, $limit);
     }
 
-    public function actionTopTags($artist = null, $mbid = null)
+    public function actionTopTags($artist)
     {
-        return $this->artistRepository->getTopTags($artist, $mbid);
+        return $this->artistRepository->getTopTags($artist);
     }
 }

@@ -21,13 +21,13 @@ class AlbumController extends Controller
         parent::__construct($id, $module, $config);
     }
 
-    public function actionInfo($album = null, $artist = null, $mbid = null)
+    public function actionInfo($album, $artist)
     {
-        return $this->albumRepository->getInfo($album, $artist, $mbid);
+        return $this->albumRepository->getInfo($album, $artist);
     }
 
-    public function actionTopTags($album = null, $artist = null, $mbid = null)
+    public function actionTopTags($album, $artist)
     {
-        return $this->albumRepository->getTopTags($album, $artist, $mbid);
+        return $this->albumRepository->getTopTags($album, $artist);
     }
 }

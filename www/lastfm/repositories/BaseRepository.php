@@ -10,6 +10,7 @@ namespace app\lastfm\repositories;
 
 use app\lastfm\services\LastfmApiClient;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Json;
 
 abstract class BaseRepository
 {
@@ -25,12 +26,14 @@ abstract class BaseRepository
         ArrayHelper::setValue($data, 'mbid', $mbid);
     }
 
-    protected function baseRequest(array $data): string
+    protected function baseRequest(array $data): array
     {
-        return \Yii::$app->cache->getOrSet(serialize($data), function() use ($data) {
+        $response = \Yii::$app->cache->getOrSet(serialize($data), function() use ($data) {
             return $this->client
                 ->request($data)
                 ->content;
         }, 5 * 60);
+
+        return Json::decode($response);
     }
 }

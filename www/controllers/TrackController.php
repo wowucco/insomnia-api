@@ -9,38 +9,30 @@
 namespace app\controllers;
 
 use app\lastfm\repositories\TrackRepository;
-use app\lastfm\useCases\TrackService;
 use app\components\Controller;
 
 class TrackController extends Controller
 {
-    private $trackService;
     private $trackRepository;
 
-    public function __construct($id, $module, TrackRepository $trackRepository, TrackService $trackService, array $config = [])
+    public function __construct($id, $module, TrackRepository $trackRepository, array $config = [])
     {
-        $this->trackService = $trackService;
         $this->trackRepository = $trackRepository;
         parent::__construct($id, $module, $config);
     }
 
-    public function actionInfo($track = null, $artist = null, $mbid = null)
+    public function actionInfo($track, $artist)
     {
-        return $this->trackRepository->getInfo($track, $artist, $mbid);
+        return $this->trackRepository->getInfo($track, $artist);
     }
 
-    public function actionSimilar($track = null, $artist = null, $mbid = null, $limit = 10)
+    public function actionSimilar($track, $artist, $limit = 10)
     {
-        return $this->trackRepository->getSimilar($track, $artist, $mbid, $limit);
+        return $this->trackRepository->getSimilar($track, $artist, $limit);
     }
 
-    public function actionTopTags($track = null, $artist = null, $mbid = null)
+    public function actionTopTags($track, $artist)
     {
-        return $this->trackRepository->getTopTags($track, $artist, $mbid);
-    }
-
-    public function actionSearch()
-    {
-        return $this->trackService->searchTrack();
+        return $this->trackRepository->getTopTags($track, $artist);
     }
 }
