@@ -28,7 +28,7 @@ $config = [
         ],
         'cache' => [
             'class' => 'yii\redis\Cache',
-            'keyPrefix' => 'playrock'
+            'keyPrefix' => 'insomnia'
         ],
         'redis' => [
             'class' => 'yii\redis\Connection',

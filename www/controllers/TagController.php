@@ -25,50 +25,53 @@ class TagController extends Controller
     }
 
     /**
-     * @param string $tagName
+     * @param string $tag
      * @return string
      */
-    public function actionInfo(string $tagName)
+    public function actionInfo(string $tag)
     {
-        return $this->tagRepository->getInfo($tagName);
+        return $this->tagRepository->getInfo($tag);
     }
 
     /**
-     * @param string $tagName
+     * @param string $tag
      * @return string
      */
-    public function actionSimilar(string $tagName)
+    public function actionSimilar(string $tag)
     {
-        return $this->tagRepository->getSimilar($tagName);
+        return $this->tagRepository->getSimilar($tag);
     }
 
     /**
-     * @param string $tagName
-     * @return string
+     * @param string $tag
+     * @param int $page
+     * @param int $limit
+     * @return array
      */
-    public function actionTopAlbums(string $tagName)
+    public function actionTopAlbums(string $tag, int $page = 1, int $limit = 50)
     {
-        // TODO add limit and page number
-        return $this->tagRepository->getTopAlbums($tagName);
+        return $this->tagRepository->getTopAlbums($tag, $limit, $page);
     }
 
     /**
-     * @param string $tagName
-     * @return string
+     * @param string $tag
+     * @param int $page
+     * @param int $limit
+     * @return array
      */
-    public function actionTopArtists(string $tagName)
+    public function actionTopArtists(string $tag, int $page = 1, int $limit = 50)
     {
-        // TODO add limit and page number
-        return $this->tagRepository->getTopArtists($tagName);
+        return $this->tagRepository->getTopArtists($tag, $limit, $page);
     }
 
     /**
-     * @param string $tagName
-     * @return string
+     * @param string $tag
+     * @param int $page
+     * @param int $limit
+     * @return array
      */
-    public function actionTopTracks(string $tagName)
+    public function actionTopTracks(string $tag, int $page = 1, int $limit = 50)
     {
-        // TODO add limit and page number
-        return $this->tagRepository->getTopTracks($tagName);
+        return $this->tagRepository->getTopTracks($tag, $limit, $page);
     }
 }

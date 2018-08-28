@@ -11,7 +11,7 @@ $config = [
             'cookieValidationKey' => 'playRockCookieValidationKey',
         ],
         'errorHandler' => [
-            'errorAction' => '',
+            'errorAction' => 'site/index',
         ]
     ]
 ];

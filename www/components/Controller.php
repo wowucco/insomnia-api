@@ -2,8 +2,10 @@
 
 namespace app\components;
 
+use app\components\entities\Guest;
 use yii\filters\Cors;
 use yii\filters\ContentNegotiator;
+use yii\filters\RateLimiter;
 use yii\web\Response;
 
 class Controller extends \yii\rest\Controller
@@ -16,6 +18,10 @@ class Controller extends \yii\rest\Controller
                 'cors' => [
                     'Origin' => ['*']
                 ]
+            ],
+            'rateLimiter' => [
+                'class' => RateLimiter::class,
+                'user' => \Yii::createObject(Guest::class)
             ],
             [
                 'class' => ContentNegotiator::class,

@@ -10,7 +10,6 @@ class TagRepository extends BaseRepository
     private const METHOD_TAG_GET_TOP_ARTISTS       = 'tag.gettopartists';
     private const METHOD_TAG_GET_TOP_TAGS          = 'tag.getTopTags';
     private const METHOD_TAG_GET_TOP_TRACKS        = 'tag.getTopTracks';
-    private const METHOD_TAG_GET_WEEKLY_CHART_LIST = 'tag.getWeeklyChartList';
 
 	public function getTopTags(): array
     {
@@ -18,72 +17,72 @@ class TagRepository extends BaseRepository
     }
 
     /**
-     * @param string $tagName (Required) : The tag name
+     * @param string $tag (Required) : The tag name
      * @return array
      */
-    public function getInfo(string $tagName): array
+    public function getInfo(string $tag): array
     {
         return $this->baseRequest([
             'method' => self::METHOD_TAG_GET_INFO,
-            'tag'    => $tagName
+            'tag'    => $tag
         ]);
     }
 
     /**
-     * @param string $tagName (Required) : The tag name
+     * @param string $tag (Required) : The tag name
      * @return array
      */
-    public function getSimilar(string $tagName): array
+    public function getSimilar(string $tag): array
     {
         return $this->baseRequest([
             'method' => self::METHOD_TAG_GET_SIMILAR,
-            'tag'    => $tagName
+            'tag'    => $tag
         ]);
     }
 
     /**
-     * @param string $tagName (Required) : The tag name
+     * @param string $tag (Required) : The tag name
      * @param int $limit (Optional) : The number of results to fetch per page. Defaults to 50.
      * @param int $page (Optional) : The page number to fetch. Defaults to first page.
      * @return array
      */
-    public function getTopAlbums(string $tagName, int $limit = 50, int $page = 1): array
+    public function getTopAlbums(string $tag, int $limit = 50, int $page = 1): array
     {
         return $this->baseRequest([
             'method' => self::METHOD_TAG_GET_TOP_ALBUMS,
-            'tag'    => $tagName,
+            'tag'    => $tag,
             'limit'  => $limit,
             'page'   => $page
         ]);
     }
 
     /**
-     * @param string $tagName (Required) : The tag name
+     * @param string $tag (Required) : The tag name
      * @param int $limit (Optional) : The number of results to fetch per page. Defaults to 50.
      * @param int $page (Optional) : The page number to fetch. Defaults to first page.
      * @return array
      */
-    public function getTopArtists(string $tagName, int $limit = 50, int $page = 1): array
+    public function getTopArtists(string $tag, int $limit = 50, int $page = 1): array
     {
         return $this->baseRequest([
             'method' => self::METHOD_TAG_GET_TOP_ARTISTS,
-            'tag'    => $tagName,
+            'tag'    => $tag,
             'limit'  => $limit,
             'page'   => $page
         ]);
     }
 
     /**
-     * @param string $tagName (Required) : The tag name
+     * @param string $tag (Required) : The tag name
      * @param int $limit (Optional) : The number of results to fetch per page. Defaults to 50.
      * @param int $page (Optional) : The page number to fetch. Defaults to first page.
      * @return array
      */
-    public function getTopTracks(string $tagName, int $limit = 50, int $page = 1): array
+    public function getTopTracks(string $tag, int $limit = 50, int $page = 1): array
     {
         return $this->baseRequest([
             'method' => self::METHOD_TAG_GET_TOP_TRACKS,
-            'tag'    => $tagName,
+            'tag'    => $tag,
             'limit'  => $limit,
             'page'   => $page
         ]);
