@@ -15,6 +15,9 @@ $params = [
     'lastfm' => [
         'apiUrl' => getenv('ENV_LASTFM_API_URL'),
         'apiKey' => getenv('ENV_LASTFM_API_KEY')
+    ],
+    'google' => [
+        'developerKey' => 'AIzaSyB21Qd8g8rSQYBHIQK6S0ANa8faCDwwZNE'
     ]
 ];
 
