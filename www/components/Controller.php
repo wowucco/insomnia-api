@@ -13,6 +13,13 @@ class Controller extends \yii\rest\Controller
     public function behaviors()
     {
         return [
+            [
+                'class' => ContentNegotiator::class,
+                'formats' => [
+                    'application/json' => Response::FORMAT_JSON,
+                    'application/xml' => Response::FORMAT_XML,
+                ]
+            ],
             'cors' => [
                 'class' => Cors::class,
                 'cors' => [
@@ -22,13 +29,6 @@ class Controller extends \yii\rest\Controller
             'rateLimiter' => [
                 'class' => RateLimiter::class,
                 'user' => \Yii::createObject(Guest::class)
-            ],
-            [
-                'class' => ContentNegotiator::class,
-                'formats' => [
-                    'application/json' => Response::FORMAT_JSON,
-                    'application/xml' => Response::FORMAT_XML,
-                ]
             ]
         ];
     }

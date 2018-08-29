@@ -14,7 +14,7 @@ use yii\filters\RateLimitInterface;
 class Guest implements RateLimitInterface
 {
     public $rateLimit = 100;
-    public $expire = 5 * 60;
+    public $expire = 200;
 
     public function getRateLimit($request, $action)
     {
